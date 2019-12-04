@@ -17,8 +17,8 @@ Amplify.configure({
     oauth: {
       domain: 'authdemodarkhaa.auth.us-east-1.amazoncognito.com',
       scope: ['email', 'profile', 'openid'],
-      redirectSignIn: 'https://localhost:3000/login ',
-      redirectSignOut: 'https://localhost:3000',
+      redirectSignIn: 'https://caselab.mn//login ',
+      redirectSignOut: 'https://caselab.mn/',
       responseType: 'token' // or 'token', note that REFRESH token will only be generated when the responseType is code
     }
   },
