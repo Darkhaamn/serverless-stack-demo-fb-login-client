@@ -10,11 +10,11 @@ export default {
   },
   cognito: {
     REGION: "us-east-1",
-    USER_POOL_ID: "us-east-1_udmFFSb92",
-    APP_CLIENT_ID: "4hmari2sqvskrup67crkqa4rmo",
-    IDENTITY_POOL_ID: "us-east-1:ceef8ccc-0a19-4616-9067-854dc69c2d82"
+    USER_POOL_ID: "us-east-1_chfWNK3F3",
+    APP_CLIENT_ID: "1mqhdpv2pakqg52eicf33uunu8",
+    IDENTITY_POOL_ID: "us-east-1:bcd9f266-2558-4d18-9c9b-2584e37152c5"
   },
   social: {
-    FB: "2132652943414873"
-  }
+    FB: "804681716658868"
+  },
 };

@@ -19,12 +19,12 @@ export default class Home extends Component {
       return;
     }
 
-    try {
-      const notes = await this.notes();
-      this.setState({ notes });
-    } catch (e) {
-      alert(e);
-    }
+    // try {
+    //   const notes = await this.notes();
+    //   this.setState({ notes });
+    // } catch (e) {
+    //   alert(e);
+    // }
 
     this.setState({ isLoading: false });
   }
@@ -83,9 +83,9 @@ export default class Home extends Component {
     return (
       <div className="notes">
         <PageHeader>Your Notes</PageHeader>
-        <ListGroup>
+        {/* <ListGroup>
           {!this.state.isLoading && this.renderNotesList(this.state.notes)}
-        </ListGroup>
+        </ListGroup> */}
       </div>
     );
   }

@@ -13,7 +13,14 @@ Amplify.configure({
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
     identityPoolId: config.cognito.IDENTITY_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+    oauth: {
+      domain: 'authdemodarkhaa.auth.us-east-1.amazoncognito.com',
+      scope: ['email', 'profile', 'openid'],
+      redirectSignIn: 'https://localhost:3000/login ',
+      redirectSignOut: 'https://localhost:3000',
+      responseType: 'token' // or 'token', note that REFRESH token will only be generated when the responseType is code
+    }
   },
   Storage: {
     region: config.s3.REGION,

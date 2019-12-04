@@ -30,6 +30,7 @@ export default class FacebookButton extends Component {
   }
 
   statusChangeCallback = response => {
+    console.log(response);
     if (response.status === "connected") {
       this.handleResponse(response.authResponse);
     } else {
@@ -50,18 +51,26 @@ export default class FacebookButton extends Component {
   }
 
   async handleResponse(data) {
+    console.log(data)
     const { email, accessToken: token, expiresIn } = data;
     const expires_at = expiresIn * 1000 + new Date().getTime();
     const user = { email };
 
-    this.setState({ isLoading: true });
+    // https://authdemoesan.auth.us-east-1.amazoncognito.com/login?
+    //   client_id=32osc0s0sotkrr7g7keevllq33&
+    //   response_type=token&
+    //   scope=email+openid+profile&
+    //   redirect_uri=https://caselab.mn/
 
+    this.setState({ isLoading: true });
+    console.log(user, token)
     try {
       const response = await Auth.federatedSignIn(
         "facebook",
         { token, expires_at },
         user
       );
+      console.log(response);
       this.setState({ isLoading: false });
       this.props.onLogin(response);
     } catch (e) {
