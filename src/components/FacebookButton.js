@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Auth } from "aws-amplify";
+import { Auth, Cache } from "aws-amplify";
 import LoaderButton from "./LoaderButton";
 
 function waitForInit() {
@@ -56,11 +56,10 @@ export default class FacebookButton extends Component {
     const expires_at = expiresIn * 1000 + new Date().getTime();
     const user = { email };
 
-    // https://authdemoesan.auth.us-east-1.amazoncognito.com/login?
-    //   client_id=32osc0s0sotkrr7g7keevllq33&
-    //   response_type=token&
-    //   scope=email+openid+profile&
-    //   redirect_uri=https://caselab.mn/
+    const fb = window.FB;
+    fb.api('/me', { fields: 'name, email' }, response => {
+      console.log(response)
+    });
 
     this.setState({ isLoading: true });
     console.log(user, token)

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { API } from "aws-amplify";
+import { API, Cache, Auth } from "aws-amplify";
 import { Link } from "react-router-dom";
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 import "./Home.css";
@@ -91,6 +91,21 @@ export default class Home extends Component {
   }
 
   render() {
+
+    const federatedInfo = Cache.getItem('federatedInfo');
+    console.log("federatedInfo", federatedInfo)
+
+    Auth.currentAuthenticatedUser().then(user => console.log(user));
+    Auth.currentCredentials().then(creds => console.log(creds));
+
+    Auth.currentSession()
+      .then(data => console.log(JSON.stringify(data)))
+      .catch(err => console.log(err));
+    
+
+    // const accessToken = (Auth.currentSession()).getIdToken().getJwtToken();
+    // console.log("accessToken", accessToken)
+    
     return (
       <div className="Home">
         {this.props.isAuthenticated ? this.renderNotes() : this.renderLander()}

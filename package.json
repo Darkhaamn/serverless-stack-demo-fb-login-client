@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build&&aws s3 sync build/ s3://caselab.mn&&aws cloudfront create-invalidation --distribution-id EQCJ34064INSS --paths /*",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

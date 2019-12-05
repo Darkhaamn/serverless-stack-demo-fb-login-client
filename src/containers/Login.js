@@ -3,6 +3,7 @@ import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import FacebookButton from "../components/FacebookButton";
+import GoogleButton from "../components/GoogleButton";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -49,6 +50,9 @@ export default class Login extends Component {
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
           <FacebookButton
+            onLogin={this.handleFbLogin}
+          />
+          <GoogleButton
             onLogin={this.handleFbLogin}
           />
           <hr />
